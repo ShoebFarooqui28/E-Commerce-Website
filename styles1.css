@@ -78,7 +78,7 @@ input:valid ~ label{
   top: 50%;
   color: white;
   pointer-events: none;
-  transform: translatey(-50%);
+  transform: translatey(-100%);
   left: 5px;
 }
 
