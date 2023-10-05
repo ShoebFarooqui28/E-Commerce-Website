@@ -7,7 +7,7 @@
   font-family: 'Kanit', sans-serif;}
 
 body{
-  background: url('bg.jpg') no-repeat;
+  background: url('/Photos/bg.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -15,8 +15,6 @@ body{
 
 .header{
   background: transparent;
-  backdrop-filter: blur(4px);
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
@@ -26,6 +24,20 @@ body{
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  transition: all .15s;
+}
+
+.header::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, .1);
+  z-index: -1;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
 }
 
 .logo{
@@ -83,7 +95,7 @@ a:active{
   font-size: 100px;
   font-weight: 600;
   text-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
-
+  transition: all .15s;
 }
 
 .join{
@@ -94,10 +106,10 @@ a:active{
   padding: 10px 100px;
   font-weight: 500;
   font-size: 16x;
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
   transition: all .2s;
   cursor: pointer;
-  
+  transition: all .15s;
 }
 
 .join:hover{ 
@@ -110,67 +122,97 @@ a:active{
   opacity: 0.7;
 }
 
-
-@media (max-width: 990px){
-  .line{
-    font-size: 80px;
-  }
+#check{
+  display: none;
+}
+ 
+.icons{
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  right: 5%;
+  text-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
 }
 
-@media (max-width: 803px){
-  .line{
-      font-size: 60px;
-  }
-}
+/*BREAKPOINTS*/
 
-@media (max-width: 803px){
-  .line{
-      font-size: 50px;
-  }
-  .logo{
-    font-size: 25px; 
-    transform: translateX(-30px);
-  }
-  .nav-bar a{
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 606px){
-
+@media (max-width: 992px){
   .header{
-    justify-content: center;
+   padding: 10px 50px;
   }
-  .logo{
-    font-size: 25px;
-    transform: translateX(0px);
+  .line{
+    font-size: 70px;
   }
-  .nav-bar a{
-    position: fixed;
+  .join{
+    padding: 10px 70px;
+  }
+}
+
+@media (max-width: 768px){
+  .icons{
+   display: block;
+
+  }
+
+  #check:checked~.icons #menu-icon{
+    display: none;
+    transition: all .15s;
+  }
+
+  .icons #close-icon{
+    display: none;
+  }
+
+  #check:checked~.icons #close-icon{
+    display: block;
+  }
+
+  .nav-bar{
+    position: absolute;
+    top: 100%;
+    left: 0%;
     width: 100%;
-    height: 100vh;
-    top: 80px;
-    left: -100%;
-    text-align: center;
+    height: 0px;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .15);
+    transition: all .15s ease;
   }
+
+  #check:checked~.nav-bar{
+    height: 300px;
+  }
+
+  .nav-bar a {
+    display: block;
+    text-align: center;
+    margin: 38px ;
+    transform: translateY(-50px);
+    transition: all .15s ease;
+  }
+
+  .nav-bar a:hover::before{
+    display: none;
+  }
+
+  .line{
+    font-size: 50px;
+    transform: translateY(50px);
+  }
+  
+  #check:checked~.nav-bar a{
+    transform: translateY(0);
+  }
+
+}
+
+@media (max-width: 450px){
   .line{
     font-size: 30px;
   }
-  .join{
-    padding: 10px 20px;
-    font-size: 10px;
-    text-align: center;
-  }
 
- @media (max-width: 295px) {
-  .line{
-    font-size: 20px;
-  }
-  .join{
-    width: 70px;
-    height: 30px;
-    font-size: 9px;
-    padding: 5px 15px;
-  }   
+  .logo{
+    font-size: 28px;
   }
 }
