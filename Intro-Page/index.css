@@ -136,7 +136,7 @@ a:active{
 }
 
 /*BREAKPOINTS*/
-
+  
 @media (max-width: 992px){
   .header{
    padding: 10px 50px;

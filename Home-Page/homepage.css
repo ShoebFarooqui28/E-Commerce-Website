@@ -50,11 +50,47 @@ body{
 }
 .card-3 {
   background-image: url('https://static.toiimg.com/thumb/msid-97559099,width-1280,height-720,resizemode-4/.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px; 
 }
 
 .card-4 {
   background-image: url('https://images.macrumors.com/t/Xli73M4hhPje3C5CeyhH1Z_c2Ro=/800x0/smart/article-new/2018/02/airpods-3.jpg?lossy');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px; 
 }
+
+.card-5 {
+  background-image: url('https://www.zotac.com/us/system/files/styles/org/private/product_main_image/graphics_cards/zt-d40900q-10p-image01_0.jpg?itok=GnwAQKDT');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+}
+
+.card-6 {
+  background-image: url('https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1683208168/Croma%20Assets/Computers%20Peripherals/Monitor/Images/244148_0_rartlx.png?tr=w-600');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+}
+
+.card-7 {
+  background-image: url('https://m.media-amazon.com/images/I/61iHq6qV0gL.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150px;
+}
+
+.card-8 {
+  background-image: url('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150px;
+}
+
+
 .card h2{
   padding: 10px;
 }
@@ -83,8 +119,6 @@ body{
 
 .header{
   background: transparent;
-  backdrop-filter: blur(4px);
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
@@ -94,6 +128,20 @@ body{
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  transition: all .15s;
+}
+
+.header::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, .1);
+  z-index: -1;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
 }
 
 .logo{
@@ -139,11 +187,104 @@ a:active{
   color: rgb(255, 141, 163);
 }
 
-.line{
-  color: white;
-  font-size: 100px;
-  font-weight: 600;
+#check{
+  display: none;
+}
+ 
+.icons{
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  right: 5%;
   text-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*BREAKPOINTS*/
+  
+@media (max-width: 992px){
+  .header{
+   padding: 10px 50px;
+  }
+}
+
+@media (max-width: 768px){
+  .icons{
+   display: block;
+
+  }
+
+  #check:checked~.icons #menu-icon{
+    display: none;
+    transition: all .15s;
+  }
+
+  .icons #close-icon{
+    display: none;
+  }
+
+  #check:checked~.icons #close-icon{
+    display: block;
+  }
+
+  .nav-bar{
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    height: 0px;
+    background-color: rgba(36, 36, 36, 0.9);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .15);
+    transition: all .15s ease;
+  }
+
+  #check:checked~.nav-bar{
+    height: 300px;
+  }
+
+  .nav-bar a {
+    display: block;
+    text-align: center;
+    margin: 38px ;
+    transform: translateY(-50px);
+    transition: all .15s ease;
+  }
+
+  .nav-bar a:hover::before{
+    display: none;
+  }
+  
+  #check:checked~.nav-bar a{
+    transform: translateY(0);
+  }
 
 }
 
+@media (max-width: 450px){
+  .logo{
+    font-size: 28px;
+  }
+}
+
+.our-prods h1{
+  color: #fff;
+  text-align: center;
+  padding-top: 150px;
+  font-size: 50px;
+  text-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
+
+}
