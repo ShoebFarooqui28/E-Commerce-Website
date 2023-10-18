@@ -158,6 +158,15 @@ body{
   text-decoration: underline;
 }
 
+.login_form #email_error,
+.login_form #pass_error{
+
+  margin-top: 5px;
+  width: 345px;
+  font-size: 12px;
+  color: rgb(231, 7, 7);
+  display: none;
+}
 
 
 @media (max-width: 420px){

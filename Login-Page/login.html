@@ -12,18 +12,18 @@
       <span class="icon-close"><ion-icon name="close"></ion-icon></span>
       <div class="form-box">
         <h2>Login</h2>
-          <form action="#">
+          <form action="../Home-Page/homepage.html">
 
             <div class="input-box">
               <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
-              <label for="email">Email</label>
+              <input type="email" autocomplete="off" name="email" required>
+              <label>Email</label>
             </div>
 
             <div class="input-box">
               <span class="icon"><ion-icon name="lock"></ion-icon></span>
-              <input type="password" required>
-              <label for="password">Password</label>
+              <input type="password" name="password" required>
+              <label>Password</label>
             </div>
             
             <button class="login" onclick="document.location='../Home-Page/homepage.html'">Login</button>
@@ -35,12 +35,11 @@
             <div class="register">
               <p>Don't have an account?</p><a href="../Signup-Page/signup.html">Register Now</a>
             </div>
-
+            
         </form>
       </div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="login.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
